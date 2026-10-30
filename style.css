@@ -221,3 +221,26 @@ body {
     }
 }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* ESTILOS GRANDES PARA LAS ESTRELLAS */
+.star-rating-box {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 40px; /* Tamaño grande y visible para dispositivos táctiles */
+    margin: 20px 0;
+    user-select: none;
+}
+
+.star-icon {
+    color: #cbd5e1; /* Gris apagado por defecto */
+    cursor: pointer;
+    transition: color 0.2s transform 0.1s;
+}
+
+.star-icon:active {
+    transform: scale(1.2); /* Efecto de rebote al pulsar */
+}
+
+.star-icon.active {
+    color: #ffc107; /* Dorado brillante al ser votada */
+}
