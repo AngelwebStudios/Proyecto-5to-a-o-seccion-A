@@ -70,26 +70,26 @@
                 </div>
             </div>
 
-            <!-- SISTEMA DE CLASIFICACIÓN REAL DESDE CERO -->
-            <div class="info-card rating-card">
-                <h2><i class="fa-solid fa-star-half-stroke"></i> Califica Nuestro Servicio</h2>
-                <p>¿Qué tal te pareció esta propuesta digital para Charallave? Toca una estrella para votar:</p>
-                
-                <div class="star-rating-box" id="star-box">
-                    <span class="star-icon" onclick="votar(1)"><i class="fa-regular fa-star"></i></span>
-                    <span class="star-icon" onclick="votar(2)"><i class="fa-regular fa-star"></i></span>
-                    <span class="star-icon" onclick="votar(3)"><i class="fa-regular fa-star"></i></span>
-                    <span class="star-icon" onclick="votar(4)"><i class="fa-regular fa-star"></i></span>
-                    <span class="star-icon" onclick="votar(5)"><i class="fa-regular fa-star"></i></span>
-                </div>
-                
-                <div class="stats-box">
-                    <p>Promedio General: <span id="avg-display" class="highlight">0.0</span> / 5 estrellas</p>
-                    <p>Total de votos: <span id="votes-display" class="highlight">0</span> personas</p>
-                </div>
-                <p id="feedback-message" class="feedback-text"></p>
+            <!-- SISTEMA DE CLASIFICACIÓN REAL CON MENSAJES -->
+        <div class="info-card rating-card">
+            <h2><i class="fa-solid fa-star-half-stroke"></i> Califica Nuestro Servicio</h2>
+            <p>¿Qué tal te pareció esta propuesta digital para Charallave? Toca una estrella para votar:</p>
+            
+            <div class="star-rating-box" id="star-box">
+                <span class="star-icon" onclick="votar(1)">★</span>
+                <span class="star-icon" onclick="votar(2)">★</span>
+                <span class="star-icon" onclick="votar(3)">★</span>
+                <span class="star-icon" onclick="votar(4)">★</span>
+                <span class="star-icon" onclick="votar(5)">★</span>
             </div>
+            
+            <div class="stats-box">
+                <p>Promedio General: <span id="avg-display" class="highlight">0.0</span> / 5 estrellas</p>
+                <p>Total de votos: <span id="votes-display" class="highlight">0</span> personas</p>
+            </div>
+            <p id="feedback-message" class="feedback-text"></p>
         </div>
+            
 
         <!-- SECCIONES COMPLETAS A PANTALLA COMPLETA (OCULTAS AL PRINCIPIO) -->
         <div id="prevention-view-wrapper" class="hidden">
