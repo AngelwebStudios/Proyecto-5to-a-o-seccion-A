@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #f0f7fc;
     color: #2c3e50;
+    position: relative;
 }
 
 /* BANNER DE ADVERTENCIA EN ROJO */
@@ -87,38 +88,80 @@ body {
 }
 
 .nav-prev-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #e6f2ff;
     color: #0056b3;
     border: 1px solid #b3d7ff;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-}
-
-.rama-content {
-    background-color: #fafafa;
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid #eee;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
 }
 
-.hidden {
-    display: none !important;
+.rama-full-section {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 40, 84, 0.08);
+    margin-bottom: 20px;
+    animation: fadeIn 0.3s ease-in-out;
 }
+
+.section-title-box {
+    padding: 25px 20px;
+    color: white;
+    text-align: center;
+}
+
+.section-title-box h2 {
+    margin: 10px 0 0 0;
+    font-size: 24px;
+}
+
+.section-big-icon {
+    font-size: 45px;
+}
+
+/* COLORES DE RAMAS */
+.hygiene-bg { background: linear-gradient(135deg, #2a9d8f, #1d665f); }
+.vacunas-bg { background: linear-gradient(135deg, #9b59b6, #6c3483); }
+.its-bg { background: linear-gradient(135deg, #e76f51, #b34a32); }
+.ninos-bg { background: linear-gradient(135deg, #007bff, #004db3); }
+
+.section-body { padding: 25px 20px; font-size: 16px; }
+.section-body ul { padding-left: 20px; }
+.section-body li { margin-bottom: 8px; }
+
+.vaccine-item {
+    background: #f8f1fb;
+    border-left: 4px solid #9b59b6;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 14.5px;
+}
+
+.hidden { display: none !important; }
 
 .back-btn {
-    background-color: #6c757d;
+    display: block;
+    width: calc(100% - 40px);
+    background-color: #4a5568;
     color: white;
     border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
+    padding: 14px;
+    margin: 0 auto 20px auto;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 16px;
+    text-align: center;
 }
 
-/* ESTRELLAS Y ESTADÍSTICAS */
+/* ESTRELLAS */
 .star-rating-box {
     display: flex;
     justify-content: center;
@@ -126,31 +169,55 @@ body {
     font-size: 32px;
     margin: 15px 0;
 }
+.star-icon { color: #cbd5e1; cursor: pointer; }
+.star-icon.active { color: #ffc107; }
+.stats-box { background-color: #f8f9fa; padding: 10px; border-radius: 6px; text-align: center; font-size: 14px; }
+.highlight { font-weight: bold; color: #007bff; }
+.feedback-text { text-align: center; font-weight: bold; color: #28a745; margin-top: 10px; }
 
-.star-icon {
-    color: #cbd5e1;
-    cursor: pointer;
+/* ANIMACIÓN INTERNA DE 5 ESTRELLAS */
+#star-animation-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.85);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
-
-.star-icon.active {
+.hidden-animation { display: none !important; }
+.show-animation { display: flex !important; }
+.spinning-star {
+    font-size: 100px;
     color: #ffc107;
+    animation: spin 1s infinite linear;
+    margin-bottom: 20px;
 }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-.stats-box {
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-radius: 6px;
-    text-align: center;
-    font-size: 14px;
+/* EFECTO LÁPIZ MÁGICO (PARTÍCULAS) */
+#particle-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 99999;
+    overflow: hidden;
 }
-
-.highlight {
-    font-weight: bold;
-    color: #007bff;
+.magic-sparkle {
+    position: absolute;
+    width: 8px; height: 8px;
+    background: #007bff;
+    box-shadow: 0 0 10px #7ec4fc, 0 0 20px #007bff;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: flyParticle 0.8s forwards ease-out;
 }
-
-.feedback-text {
-    text-align: center;
-    font-weight: bold;
-    color: #28a745;
+@keyframes flyParticle {
+    to {
+        transform: translate(var(--x), var(--y));
+        opacity: 0;
+    }
 }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
