@@ -1,51 +1,55 @@
-// CONTROL DE SECCIONES DE PREVENCIÓN
+// CONTROL DE SECCIONES DE PREVENCIÓN CORREGIDO
 function mostrarRama(rama) {
+    // Ocultar la pantalla de inicio por completo
     document.getElementById('main-content-wrapper').classList.add('hidden');
+    
+    // Activar el bloque de las secciones completas
     document.getElementById('prevention-view-wrapper').classList.remove('hidden');
+    
+    // Ocultar todas las tarjetas de información antes de abrir la correspondiente
     document.querySelectorAll('.rama-full-section').forEach(el => el.classList.add('hidden'));
+    
+    // Mostrar la sección completa seleccionada por el usuario
     document.getElementById(`content-${rama}`).classList.remove('hidden');
+    
+    // Llevar la barra de navegación al inicio superior de la pantalla
     window.scrollTo(0, 0);
 }
 
 function regresarMenu() {
+    // Cerrar las pantallas de prevención completas
     document.getElementById('prevention-view-wrapper').classList.add('hidden');
+    
+    // Volver a encender el panel central de inicio
     document.getElementById('main-content-wrapper').classList.remove('hidden');
     window.scrollTo(0, 0);
 }
 
-// CONEXIÓN CENTRALIZADA MEDIANTE API PÚBLICA GRATUITA (CONTADOR GLOBAL)
-const CONTADOR_ID = "salud_mirandina_votos_final";
-const API_URL = `https://countapi.xyz{CONTADOR_ID}`;
+// SISTEMA DE CONTROL DE VOTACIÓN SEGURO (SIN APIS QUE FALLEN)
+let totalVotos = parseInt(localStorage.getItem('total_votos_salud')) || 0;
+let sumaTotal = parseInt(localStorage.getItem('suma_total_salud')) || 0;
+let lapizMagicoActivado = false; 
 
-// Al cargar la página, busca cuántas personas reales han votado en total en el mundo
+// Al cargar el documento, dibuja las estadísticas guardadas en este equipo
 document.addEventListener("DOMContentLoaded", () => {
-    recuperarDatosGlobales();
+    actualizarPantallaStats();
 });
 
-function recuperarDatosGlobales() {
-    fetch(API_URL)
-        .then(res => res.json())
-        .then(data => {
-            let votosRealistas = data.value || 0;
-            // Inicializamos una simulación realista en base a los clics globales en la API
-            let totalVotos = 45 + votosRealistas; 
-            let promedioSimulado = 4.7;
-
-            document.getElementById('avg-display').innerText = promedioSimulado.toFixed(1);
-            document.getElementById('votes-display').innerText = totalVotos;
-        })
-        .catch(() => {
-            // Si la API pública está saturada, muestra un contador cooperativo base para la defensa
-            document.getElementById('avg-display').innerText = "4.8";
-            document.getElementById('votes-display').innerText = "143";
-        });
+function actualizarPantallaStats() {
+    if (totalVotos === 0) {
+        document.getElementById('avg-display').innerText = "0.0";
+        document.getElementById('votes-display').innerText = "0";
+    } else {
+        let promedio = (sumaTotal / totalVotos).toFixed(1);
+        document.getElementById('avg-display').innerText = promedio;
+        document.getElementById('votes-display').innerText = totalVotos;
+    }
 }
-
-let lapizMagicoActivado = false; 
 
 function votar(estrellas) {
     const spans = document.querySelectorAll('.star-icon');
     
+    // Encender visualmente las estrellas seleccionadas
     spans.forEach((span, index) => {
         if (index < estrellas) {
             span.classList.add('active');
@@ -54,20 +58,26 @@ function votar(estrellas) {
         }
     });
 
-    // Enviar el voto al servidor de internet para que se sume de forma global
-    fetch(`${API_URL}/hit`)
-        .then(() => {
-            // Recargar el número global en las pantallas de todos los teléfonos
-            recuperarDatosGlobales();
-        });
+    // Procesar la suma matemática en local de forma inmediata
+    totalVotos++;
+    sumaTotal += estrellas;
+    
+    // Guardar en la memoria local para que no se borre al actualizar la página
+    localStorage.setItem('total_votos_salud', totalVotos);
+    localStorage.setItem('suma_total_salud', sumaTotal);
+    
+    // Refrescar los números de la pantalla
+    actualizarPantallaStats();
 
     const textFeedback = document.getElementById('feedback-message');
     
+    // EVALUAR LAS ALERTAS DE VOTO
     if (estrellas === 5) {
-        lapizMagicoActivado = true; 
-        textFeedback.style.color = "#28a745"; 
+        lapizMagicoActivado = true; // Libera los brillos al hacer clics
+        textFeedback.style.color = "#28a745"; // Color verde de éxito
         textFeedback.innerText = "¡Excelente! Se ha desbloqueado el lápiz mágico. 🪄 (Toca la pantalla)";
         
+        // Disparar animación de la estrella grande girando en el medio
         const overlay = document.getElementById('star-animation-overlay');
         if (overlay) {
             overlay.classList.remove('hidden-animation');
@@ -78,13 +88,13 @@ function votar(estrellas) {
             }, 2500);
         }
     } else {
-        lapizMagicoActivado = false; 
-        textFeedback.style.color = "#0056b3"; 
+        lapizMagicoActivado = false; // Bloquea si la puntuación es baja
+        textFeedback.style.color = "#0056b3"; // Color azul informativo
         textFeedback.innerText = "¡Gracias! ¿Te gustó nuestra propuesta?";
     }
 }
 
-// LÓGICA DEL LÁPIZ MÁGICO
+// FUNCIONAMIENTO INTERACTIVO DEL LÁPIZ MÁGICO
 document.addEventListener('click', (e) => {
     if (!lapizMagicoActivado) return;
 
