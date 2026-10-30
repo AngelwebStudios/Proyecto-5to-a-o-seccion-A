@@ -1,0 +1,156 @@
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f7fc;
+    color: #2c3e50;
+}
+
+/* BANNER DE ADVERTENCIA EN ROJO */
+.warning-banner {
+    background-color: #ffdddd;
+    color: #d9534f;
+    border-bottom: 2px solid #d9534f;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.main-header {
+    background: linear-gradient(135deg, #007bff 0%, #004085 100%);
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-overlay {
+    padding: 35px 20px;
+}
+
+.main-icon {
+    font-size: 50px;
+    color: #7ec4fc;
+    margin-bottom: 8px;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.main-container {
+    padding: 15px;
+    max-width: 480px; /* Tamaño ideal y optimizado para pantallas de teléfonos móvil */
+    margin: 0 auto;
+}
+
+.info-card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 64, 133, 0.05);
+    border-top: 4px solid #007bff;
+}
+
+.info-card h2 {
+    margin-top: 0;
+    color: #004085;
+    font-size: 20px;
+}
+
+/* BOTÓN WHATSAPP VERDE */
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+}
+
+/* INTERACTIVIDAD DE PREVENCIÓN */
+.menu-prevention {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-prev-btn {
+    background-color: #e6f2ff;
+    color: #0056b3;
+    border: 1px solid #b3d7ff;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.rama-content {
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.back-btn {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ESTRELLAS Y ESTADÍSTICAS */
+.star-rating-box {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    font-size: 32px;
+    margin: 15px 0;
+}
+
+.star-icon {
+    color: #cbd5e1;
+    cursor: pointer;
+}
+
+.star-icon.active {
+    color: #ffc107;
+}
+
+.stats-box {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.feedback-text {
+    text-align: center;
+    font-weight: bold;
+    color: #28a745;
+}
