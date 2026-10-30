@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Mirandina</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ADVERTENCIA DE PROYECTO ESCOLAR -->
+    <div class="warning-banner">
+        <strong>⚠️ ADVERTENCIA:</strong> Esta página web no es oficial, solo es un proyecto final de secundaria de la U.E.N. Teresa de Bolívar I. Todo lo que veas aquí es solo un ejemplo de la propuesta.
+    </div>
+
+    <!-- ENCABEZADO -->
+    <header class="main-header">
+        <div class="header-overlay">
+            <i class="fa-solid fa-laptop-medical main-icon"></i>
+            <h1>Salud Mirandina</h1>
+            <p>Portal Informativo de Salud Comunitaria • Charallave</p>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <!-- BOTÓN DE WHATSAPP REAL -->
+        <div class="info-card mobile-optimized">
+            <h2><i class="fa-solid fa-bullhorn"></i> Información en tu Teléfono</h2>
+            <p>Súmate a nuestro canal oficial para recibir notificaciones sobre jornadas médicas, vacunación y alertas comunitarias directamente.</p>
+            <a href="https://whatsapp.com/channel/0029VbDn0dN7YSd8UnatbR1b" target="_blank" class="action-btn whatsapp-btn">
+                <i class="fa-brands fa-whatsapp"></i> Únete a nuestro canal de WhatsApp
+            </a>
+        </div>
+
+        <!-- SECCIÓN DE PREVENCIÓN INTERACTIVA -->
+        <div class="info-card" id="prevention-section">
+            <h2><i class="fa-solid fa-shield-halved"></i> Módulo de Prevención</h2>
+            <p>Selecciona un área de salud para desplegar la información correspondiente:</p>
+            
+            <div class="menu-prevention" id="menu-prevention">
+                <button class="nav-prev-btn" onclick="mostrarRama('higiene')"><i class="fa-solid fa-hand-sparkles"></i> Higiene de Manos</button>
+                <button class="nav-prev-btn" onclick="mostrarRama('its')"><i class="fa-solid fa-virus"></i> Infecciones de Transmisión Sexual (ITS)</button>
+                <button class="nav-prev-btn" onclick="mostrarRama('ninos')"><i class="fa-solid fa-child"></i> Salud Infantil</button>
+            </div>
+
+            <!-- RAMAS OCULTAS -->
+            <div id="content-higiene" class="rama-content hidden">
+                <h3><i class="fa-solid fa-hand-sparkles"></i> Higiene de Manos</h3>
+                <p>El lavado correcto con agua y jabón elimina virus y bacterias. Se debe realizar antes de comer, después de usar el baño y al llegar de la calle por un mínimo de 20 segundos.</p>
+                <button class="back-btn" onclick="regresarMenu()"><i class="fa-solid fa-arrow-left"></i> Atrás</button>
+            </div>
+
+            <div id="content-its" class="rama-content hidden">
+                <h3><i class="fa-solid fa-virus"></i> Prevención de ITS</h3>
+                <p>Las Infecciones de Transmisión Sexual se previenen mediante el uso correcto de métodos anticonceptivos de barrera (preservativos) y chequeos médicos periódicos en el hospital.</p>
+                <button class="back-btn" onclick="regresarMenu()"><i class="fa-solid fa-arrow-left"></i> Atrás</button>
+            </div>
+
+            <div id="content-ninos" class="rama-content hidden">
+                <h3><i class="fa-solid fa-child"></i> Salud Infantil</h3>
+                <p>Mantener al día el esquema de inmunización nacional, asistir a las consultas de control de niño sano y asegurar una correcta desinfección de alimentos en el hogar.</p>
+                <button class="back-btn" onclick="regresarMenu()"><i class="fa-solid fa-arrow-left"></i> Atrás</button>
+            </div>
+        </div>
+
+        <!-- SISTEMA DE CLASIFICACIÓN CON PROMEDIO -->
+        <div class="info-card rating-card">
+            <h2><i class="fa-solid fa-star-half-stroke"></i> Califica Nuestro Servicio</h2>
+            <p>¿Qué tal te pareció esta propuesta digital para Charallave?</p>
+            
+            <div class="star-rating-box" id="star-box">
+                <span class="star-icon" onclick="votar(1)"><i class="fa-regular fa-star"></i></span>
+                <span class="star-icon" onclick="votar(2)"><i class="fa-regular fa-star"></i></span>
+                <span class="star-icon" onclick="votar(3)"><i class="fa-regular fa-star"></i></span>
+                <span class="star-icon" onclick="votar(4)"><i class="fa-regular fa-star"></i></span>
+                <span class="star-icon" onclick="votar(5)"><i class="fa-regular fa-star"></i></span>
+            </div>
+            
+            <div class="stats-box">
+                <p>Promedio General: <span id="avg-display" class="highlight">4.5</span> / 5 estrellas</p>
+                <p>Total de votos: <span id="votes-display" class="highlight">142</span> personas</p>
+            </div>
+            <p id="feedback-message" class="feedback-text"></p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
