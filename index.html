@@ -8,14 +8,8 @@
 </head>
 <body>
 
-    <!-- CAPA PARA EFECTO LÁPIZ MÁGICO -->
+    <!-- CAPA PARA EFECTO LÁPIZ MÁGICO MULTICOLOR -->
     <div id="particle-container"></div>
-
-    <!-- ANIMACIÓN DE ESTRELLA GIRATORIA -->
-    <div id="star-animation-overlay" class="hidden-animation">
-        <div class="spinning-star">⭐</div>
-        <h2>¡Excelente Valoración!</h2>
-    </div>
 
     <!-- ADVERTENCIA DE PROYECTO ESCOLAR -->
     <div class="warning-banner">
@@ -33,149 +27,58 @@
 
     <div class="main-container">
 
-        <!-- CONTENIDO PRINCIPAL DE LA WEB (INICIO) -->
-        <div id="main-content-wrapper">
-            <!-- BOTÓN DE WHATSAPP -->
-            <div class="info-card">
-                <h2>📢 Información en tu Teléfono</h2>
-                <p>Súmate a nuestro canal oficial para recibir notificaciones sobre jornadas médicas, vacunación y alertas comunitarias directamente.</p>
-                <a href="https://whatsapp.com" target="_blank" class="action-btn whatsapp-btn">
-                    📲 Únete a nuestro canal de WhatsApp
-                </a>
-            </div>
+        <!-- BOTÓN DE WHATSAPP -->
+        <div class="info-card">
+            <h2>📢 Información en tu Teléfono</h2>
+            <p>Súmate a nuestro canal oficial para recibir notificaciones sobre jornadas médicas, vacunación y alertas comunitarias directamente.</p>
+            <a href="https://whatsapp.com" target="_blank" class="action-btn whatsapp-btn">
+                📲 Únete a nuestro canal de WhatsApp
+            </a>
+        </div>
 
-            <!-- SECCIÓN DE PREVENCIÓN (MENÚ PRINCIPAL) -->
-            <div class="info-card">
-                <h2>🛡️ Módulo de Prevención</h2>
-                <p>Selecciona un área de salud para desplegar la sección completa de información preventiva:</p>
-                
-                <div class="menu-prevention">
-                    <button class="nav-prev-btn" onclick="mostrarRama('higiene')">
-                        <span>🧼 Higiene de Manos</span>
-                        <span>➡️</span>
-                    </button>
-                    <button class="nav-prev-btn" onclick="mostrarRama('vacunas')">
-                        <span>💉 Cronograma de Vacunación</span>
-                        <span>➡️</span>
-                    </button>
-                    <button class="nav-prev-btn" onclick="mostrarRama('its')">
-                        <span>🦠 Infecciones de Transmisión Sexual (ITS)</span>
-                        <span>➡️</span>
-                    </button>
-                    <button class="nav-prev-btn" onclick="mostrarRama('ninos')">
-                        <span>🧸 Salud Infantil General</span>
-                        <span>➡️</span>
-                    </button>
-                </div>
-            </div>
+        <!-- SECCIÓN DE LA PROPUESTA EDUCATIVA CON LA IMAGEN -->
+        <div class="info-card proposal-card">
+            <h2>🛡️ Propuesta de Comunicación Comunitaria</h2>
+            <img src="https://istockphoto.com" class="proposal-img" alt="Pasillo Hospital Charallave">
+            <p>El objetivo fundamental de este proyecto es proveer una herramienta digital respetuosa, atractiva y de fácil acceso para mantener a la población de Charallave informada sobre los servicios y campañas del centro asistencial local.</p>
+            <p>Aunque actualmente esta plataforma funciona únicamente como una simulación académica final, posee todo el potencial estructural y técnico para convertirse en el canal oficial de difusión informativa del hospital.</p>
+        </div>
 
-            <!-- SISTEMA DE CLASIFICACIÓN REAL DESDE CERO -->
-            <div class="info-card rating-card">
-                <h2>⭐ Califica Nuestro Servicio</h2>
-                <p>¿Qué tal te pareció esta propuesta digital para Charallave? Toca una estrella para votar:</p>
-                
-                <div class="star-rating-box" id="star-box">
-                    <span class="star-icon" onclick="votar(1)">★</span>
-                    <span class="star-icon" onclick="votar(2)">★</span>
-                    <span class="star-icon" onclick="votar(3)">★</span>
-                    <span class="star-icon" onclick="votar(4)">★</span>
-                    <span class="star-icon" onclick="votar(5)">★</span>
+        <!-- SISTEMA DE CLASIFICACIÓN (SOLO EJEMPLO SIN GUARDAR) -->
+        <div class="info-card rating-card">
+            <h2>⭐ Califica Nuestro Trabajo</h2>
+            <p>Toca una estrella para evaluar el diseño de este proyecto de 5to año:</p>
+            
+            <div class="star-rating-box" id="star-box">
+                <span class="star-icon" onclick="votar(1)">★</span>
+                <span class="star-icon" onclick="votar(2)">★</span>
+                <span class="star-icon" onclick="votar(3)">★</span>
+                <span class="star-icon" onclick="votar(4)">★</span>
+                <span class="star-icon" onclick="votar(5)">★</span>
+            </div>
+            
+            <p id="feedback-message" class="feedback-text"></p>
+        </div>
+
+        <!-- SECCIÓN SORPRESA GAMEPLUS (OCULTA POR DEFECTO) -->
+        <div id="gameplus-section" class="info-card game-card hidden">
+            <div class="game-header">
+                <h3>🎮 Módulo GamePlus Activado</h3>
+                <p class="thanks-msg">¡Espero que te haya gustado la página! 🎉</p>
+            </div>
+            <div class="game-body">
+                <p><strong>Trivia Médica Rápida:</strong> ¿Cuál es la forma más efectiva de evitar el contagio de ITS en jóvenes?</p>
+                <div class="game-options">
+                    <button class="game-btn" onclick="jugar(false)">A) Tomar vitaminas de mañana</button>
+                    <button class="game-btn" onclick="jugar(true)">B) Uso correcto de preservativos</button>
+                    <button class="game-btn" onclick="jugar(false)">C) Lavarse las manos solamente</button>
                 </div>
-                
-                <div class="stats-box">
-                    <p>Promedio General: <span id="avg-display" class="highlight">0.0</span> / 5 estrellas</p>
-                    <p>Total de votos: <span id="votes-display" class="highlight">0</span> personas</p>
-                </div>
-                <p id="feedback-message" class="feedback-text"></p>
+                <p id="game-feedback" class="game-feedback-text"></p>
             </div>
         </div>
 
-        <!-- SECCIONES COMPLETAS A PANTALLA COMPLETA (OCULTAS AL PRINCIPIO) -->
-        <div id="prevention-view-wrapper" class="hidden">
-            
-            <!-- RAMA HIGIENE -->
-            <div id="content-higiene" class="rama-full-section hidden">
-                <div class="section-title-box hygiene-bg">
-                    <div class="section-big-icon">🧼</div>
-                    <h2>Higiene y Lavado de Manos</h2>
-                </div>
-                <div class="section-body">
-                    <!-- IMAGEN HIGIENE -->
-                    <img src="https://unsplash.com" class="section-img" alt="Lavado de manos">
-                    <p>El lavado correcto con agua y jabón es la primera línea de defensa contra virus y bacterias en nuestra comunidad. Se debe realizar obligatoriamente antes de comer, después de usar el baño y al llegar de la calle por un mínimo de 20 segundos.</p>
-                    <h3>Pasos clave:</h3>
-                    <ul>
-                        <li>Usar abundante agua limpia y jabón.</li>
-                        <li>Frotar las palmas, el dorso y entre los dedos.</li>
-                        <li>Secar con una toalla limpia o al aire.</li>
-                    </ul>
-                </div>
-                <button class="back-btn" onclick="regresarMenu()">⬅️ Volver al Menú Principal</button>
-            </div>
+    </div>
 
-            <!-- RAMA VACUNAS -->
-            <div id="content-vacunas" class="rama-full-section hidden">
-                <div class="section-title-box vacunas-bg">
-                    <div class="section-big-icon">💉</div>
-                    <h2>Cronograma de Vacunación</h2>
-                </div>
-                <div class="section-body">
-                    <!-- IMAGEN VACUNAS -->
-                    <img src="https://unsplash.com" class="section-img" alt="Vacunas">
-                    <p>Esquema básico de inmunización recomendado para la protección de la salud familiar:</p>
-                    <div class="vaccine-item">
-                        <strong>💉 BCG (Antituberculosa):</strong> Se aplica al nacer para proteger contra formas graves de tuberculosis.
-                    </div>
-                    <div class="vaccine-item">
-                        <strong>💉 Hepatitis B:</strong> Previene la infección viral del hígado. Dosis al nacer y de rutina.
-                    </div>
-                    <div class="vaccine-item">
-                        <strong>💉 Pentavalente:</strong> Protege contra 5 enfermedades: Difteria, Tosferina, Tétanos, Hepatitis B y Meningitis.
-                    </div>
-                    <div class="vaccine-item">
-                        <strong>💉 Polio:</strong> Fundamental para prevenir la parálisis infantil durante las etapas iniciales del desarrollo.
-                    </div>
-                    <div class="vaccine-item">
-                        <strong>💉 Triple Viral (SRP):</strong> Protege contra el Sarampión, Rubéola y Parotiditis.
-                    </div>
-                </div>
-                <button class="back-btn" onclick="regresarMenu()">⬅️ Volver al Menú Principal</button>
-            </div>
-
-            <!-- RAMA ITS -->
-            <div id="content-its" class="rama-full-section hidden">
-                <div class="section-title-box its-bg">
-                    <div class="section-big-icon">🦠</div>
-                    <h2>Prevención de ITS</h2>
-                </div>
-                <div class="section-body">
-                    <!-- IMAGEN ITS -->
-                    <img src="https://unsplash.com" class="section-img" alt="Salud médica">
-                    <p>Las Infecciones de Transmisión Sexual se mitigan mediante el uso correcto de métodos anticonceptivos de barrera (preservativos) en cada relación. La desinformación y el miedo a la consulta médica aumentan los riesgos de contagio en la población juvenil.</p>
-                    <h3>Pilares fundamentales:</h3>
-                    <ul>
-                        <li>Uso sistemático de métodos de barrera (preservativos).</li>
-                        <li>Educación sexual integral libre de prejuicios y tabúes.</li>
-                        <li>Asistencia médica preventiva y oportuna en el hospital del sector.</li>
-                    </ul>
-                </div>
-                <button class="back-btn" onclick="regresarMenu()">⬅️ Volver al Menú Principal</button>
-            </div>
-
-            <!-- RAMA NIÑOS -->
-            <div id="content-ninos" class="rama-full-section hidden">
-                <div class="section-title-box ninos-bg">
-                    <div class="section-big-icon">🧸</div>
-                    <h2>Salud Infantil General</h2>
-                </div>
-                <div class="section-body">
-                    <!-- IMAGEN NIÑOS -->
-                    <img src="https://unsplash.com" class="section-img" alt="Niños sanos">
-                    <p>Proteger el crecimiento seguro de los niños de Charallave requiere acciones directas en los hogares y controles asistenciales regulares.</p>
-                    <h3>Recomendaciones de cuidado integral:</h3>
-                    <ul>
-                        <li>Mantener al día el esquema completo de vacunas obligatorias.</li>
-                        <li>Asistir de forma puntual a las consultas programadas de niño sano.</li>
-                        <li>Garantizar una correcta desinfección de los alimentos y el almacenamiento higiénico del agua potable.</li>
-                    </ul>
-                </div>
+    <script src="script.js"></script>
+</body>
+</html>
