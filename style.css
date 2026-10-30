@@ -244,3 +244,13 @@ body {
 .star-icon.active {
     color: #ffc107; /* Dorado brillante al ser votada */
 }
+```css
+/* DISEÑO PARA LAS IMÁGENES DE LAS SECCIONES */
+.section-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
